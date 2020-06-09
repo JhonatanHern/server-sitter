@@ -20,13 +20,9 @@ EYSSServer.stderr.on('data', (chunk) => {
 EYSSServer.on('exit', function (code, signal) {
     EYSSServer = spawn('npm',['start'])
     log('Server crashed. Restarting.','RESET_MSG')
-
-})
-reactServer.on('error', (err) => {
-	log('Failed to start subprocess.','INIT_ERROR')
 })
 
-reactServer.on('warning', (warning) => {
+EYSSServer.on('warning', (warning) => {
     log(warning.name + ' - ' + warning.message,'WARNING_MSG')
 })
 
